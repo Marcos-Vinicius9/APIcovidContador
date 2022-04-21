@@ -5,13 +5,17 @@ import pandas as pd
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def homePage():
+  return 'Api funcionando.'
+
+  
+@app.route('/dados')
+def dataPage():
   tabela = pd.read_csv('tabela.csv')
-  tabelaId = tabela['id']
+  tabelaAutor = tabela['autor']
   tabelaTitle = tabela['title']
-  tabelaAutor = tabela['title']
+  tabelaId = tabela['id']
   tabelaLink= tabela['link']
 
   respostas = []
